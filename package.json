@@ -2,17 +2,19 @@
   "name": "ethbooks-frontend",
   "version": "0.0.0",
   "scripts": {
-    "start": "http-server",
-    "lint": "tslint \"src/**/*.ts\"",
-    "test": "ng test",
-    "pree2e": "webdriver-manager update",
-    "e2e": "protractor",
-    "preinstall": "npm install -g angular-cli",
-    "postinstall": "ng build && mv dist/* ."
-  },
+      "ng": "ng",
+      "start": "ng serve",
+      "build": "ng build",
+      "lint": "ng lint",
+      "test": "ng test",
+      "pree2e": "webdriver-manager update",
+      "e2e": "ng e2e",
+      "preinstall": "npm install -g angular-cli",
+      "postinstall": "ng build && mv dist/* ."
+    },
   "private": true,
   "dependencies": {
-    "@angular/cli": "~8.3.23",
+
     "@angular/animations": "~8.2.14",
     "@angular/common": "~8.2.14",
     "@angular/compiler": "~8.2.14",
