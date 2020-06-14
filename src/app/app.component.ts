@@ -9,7 +9,7 @@ import { BookService } from './services/book.service';
 export class AppComponent {
   title = 'ethbooks-frontend';
 
-  categories: string[];
+  categories: string[] = new Array();
 
   constructor(private bookService: BookService) { }
 
@@ -22,8 +22,10 @@ export class AppComponent {
     this.bookService.getBooksList().subscribe(
       data => {
         data.forEach(book => {
-          this.categories = {...this.categories, ...book.categories};
+            this.categories = [...this.categories, ...book.categories];
         });
+        this.categories = this.categories.map(cat => cat.charAt(0).toUpperCase() + cat.substring(1));
+        this.categories = Array.from(new Set(this.categories)).sort();
     });
   }
 }
